@@ -4,6 +4,18 @@ This project implements an **AES-128 Counter (CTR) Mode Encryption Engine** inte
 
 ---
 
+## 🎯 Objective & Motivation
+
+The project serves as a practical implementation of cryptographic hardware, focused on:
+
+Learning register-transfer-level (RTL) design for security applications.
+
+Understanding AES core structure and transformation functions (SubBytes, ShiftRows, MixColumns, AddRoundKey).
+
+Interfacing cryptographic cores with standard SoC buses (APB) to simulate real-world usage.
+
+Gaining hands-on skills for future opportunities in defense, embedded systems, or FPGA-based security design.
+
 ## 🧠 Key Features
 
 - ✅ **AES-128 Encryption** (CTR Mode)
@@ -45,6 +57,35 @@ AES-APB-1/
 | 0x18–0x1F | `counter`   | 128-bit counter input (CTR)    |
 | 0x20–0x27 | `output`    | 128-bit ciphertext output      |
 
+## 🔄 APB Interface Description
+
+The design uses a simplified APB slave interface with support for:
+
+Write to plain text registers
+
+Write to key and counter registers
+
+Trigger encryption operation
+
+Read encrypted ciphertext
+
+APB signals used:
+
+PADDR, PWDATA, PWRITE, PSEL, PENABLE, PRDATA, PREADY
+
+## 🔐 AES-CTR Core
+
+AES-128 encryption using a 128-bit key
+
+CTR mode: combines a counter with encryption for stream-like operation
+
+AES core follows the standard 10-round process:
+
+AddRoundKey
+
+9 Main Rounds (SubBytes → ShiftRows → MixColumns → AddRoundKey)
+
+1 Final Round (no MixColumns)
 ---
 
 ## 🚀 How to Simulate
@@ -70,6 +111,17 @@ AES-APB-1/
 - IoT hardware security modules
 
 ---
+## 🚀 Future Enhancements
+
+Add AES-128 decryption module.
+
+Implement AXI-lite interface for high-performance integration.
+
+Optimize for area/power on FPGA (Spartan-6/Artix-7).
+
+Add support for side-channel attack protection (e.g., random masking).
+
+Deploy on actual FPGA hardware for real-time secure comms.
 
 ## 🙋‍♂️ Author
 
@@ -78,6 +130,4 @@ AES-APB-1/
 
 ---
 
-## 📄 License
 
-This project is released under the MIT License. See [LICENSE](LICENSE) for more details.
