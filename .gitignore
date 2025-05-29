@@ -1,0 +1,19 @@
+# Ignore Vivado project files
+*.jou
+*.log
+*.str
+*.backup
+*.orig
+*.bit
+*.bin
+*.tmp
+*.vcd
+*.wdb
+*.xpr
+*.runs/
+*.ip_user_files/
+*.Xil/
+*.cache/
+*.hw/
+*.sim/
+*.webtalk/
